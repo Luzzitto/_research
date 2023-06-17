@@ -1,0 +1,46 @@
+---
+title: Getting Started with Jetson Nano
+date: '2023-06-13'
+tags: ['research', 'jetson nano', 'flash']
+draft: false
+summary: Setting up Jetson Nano for yolov5
+---
+
+# Getting Started with Jetson Nano
+
+## Flashing Jetson Nano
+Simply follow the how-to steps that can found in the [Jetson Nano Starting Guide](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#write).
+
+1. Download `etcher`
+
+## Re-Flashing Nano
+1. Insert SD Card
+    * The SD Card will show multiple drives stating to format disk drive.
+2. Open `diskpart` through the Windows Search
+3. Type `list disk` to see the list of disks.
+4. Select the desired disk i.e., 
+```console
+diskpart> select disk <number>
+```
+5. Type `clean` to reset the sd card.
+6. `convert mbr` to format the sd card.
+7. Open `diskmgmt.msc` to partition the SD Card.
+8. Right-click on the desired SD Card and select `New Simple Volume`
+9. Follow the instruction until it's finished.
+10. Follow the steps from [Flashing Jetson Nano](#-Flashing-Jetson-Nano)
+
+## Prepping for yolov5
+1. Update and upgrade the OS
+```console
+odudrone@cyber:~$ sudo apt update && sudo apt upgrade
+```
+2. Install `pip3`
+```console
+odudrone@cyber:~$ sudo apt install python3-pip
+```
+3. Upgrade `pip3`
+```console
+odudrone@cyber:~$ python3.6 -m pip install --upgrade pip
+```
+
+## Install `Jetson Inference`
